@@ -1,5 +1,5 @@
 ﻿using ThirdPersonShooter.Entities.Player;
-
+using ThirdPersonShooter.UI;
 using UnityEngine;
 
 namespace ThirdPersonShooter
@@ -40,6 +40,9 @@ namespace ThirdPersonShooter
 		{
 			IsPaused = !IsPaused;
 			Time.timeScale = IsPaused ? 0 : 1;
+			
+			if(IsPaused) UIManager.ShowMenu("Pause");
+			else UIManager.HideMenu("Pause");
 		}
 	}
 }

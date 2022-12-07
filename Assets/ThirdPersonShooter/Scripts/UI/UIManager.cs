@@ -7,6 +7,9 @@ namespace ThirdPersonShooter.UI
 {
 	public class UIManager : Singleton<UIManager>
 	{
+		public static void ShowMenu(string _id, bool _additive = true) => Instance.ActivateMenu(_id, _additive);
+		public static void HideMenu(string _id) => Instance.DeactivateMenu(_id);
+		
 		public InputSystemUIInputModule inputModule;
 
 		[SerializeField] private AudioListener uiListener;
@@ -31,16 +34,12 @@ namespace ThirdPersonShooter.UI
 					}
 					else
 					{
-						{
-							menu.SetVisible(false);
-						}
+						menu.SetVisible(false);
 					}
 				}
 				else
 				{
-					{
-						Debug.LogError($"Duplicate menu ID detected, ID: {menu.ID}");
-					}
+					Debug.LogError($"Duplicate menu ID detected, ID: {menu.ID}");
 				}
 			}
 		}
